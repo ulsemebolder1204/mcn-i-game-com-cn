@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ulsemebolder1204.github.io/mcn-i-game-com-cn/sitemap.xml

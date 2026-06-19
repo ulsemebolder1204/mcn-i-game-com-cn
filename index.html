@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>爱游戏 · 资料索引与信息卡片</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f7fa;
+      color: #1d2b3a;
+      line-height: 1.6;
+    }
+
+    /* 深色头图 – 信息密度 + 克制的纹理 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2a 0%, #1a2f44 100%);
+      padding: 3.5rem 1.8rem 4rem;
+      text-align: center;
+      color: #e5edf5;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 31px);
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 span {
+      color: #7fc1ff;
+      border-bottom: 2px solid #7fc1ff;
+      padding-bottom: 2px;
+    }
+    .hero p {
+      max-width: 640px;
+      margin: 0.8rem auto 0;
+      font-size: 1.1rem;
+      color: #b7cdde;
+      font-weight: 350;
+    }
+
+    /* 浅色正文区 – 卡片系统 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.4rem 1.5rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5f7d9a;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #2b6ba2;
+      padding-left: 0.75rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 10px 20px -8px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #eef2f7;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px -10px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 550;
+      margin-bottom: 0.8rem;
+      color: #0f283d;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card h3 i {
+      font-size: 1.1rem;
+      color: #2b6ba2;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2d4055;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0.2rem;
+    }
+    .card ul li {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+    .card ul li::before {
+      content: '▹';
+      color: #2b6ba2;
+      font-weight: 600;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #1d6fa5;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s, border-bottom 0.15s;
+      border-bottom: 1px solid transparent;
+    }
+    a:hover {
+      color: #0a3e62;
+      border-bottom: 1px solid #0a3e62;
+    }
+
+    .inline-link-block {
+      background: #eff4fa;
+      padding: 2rem 1.8rem;
+      border-radius: 28px;
+      margin: 2rem 0 1.6rem;
+      border-left: 5px solid #2b6ba2;
+    }
+    .inline-link-block p {
+      font-size: 1.05rem;
+    }
+
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      margin: 2.2rem 0 0.8rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e6ecf3;
+      padding-bottom: 0.6rem;
+    }
+    .faq-item:last-child, .faq-item:nth-last-child(2) {
+      border-bottom: none;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #142a3c;
+    }
+    .faq-item span {
+      font-size: 0.9rem;
+      color: #3a536b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 2.8rem 1rem 3rem; }
+      .faq-mini { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 460px) {
+      .card-grid { gap: 1.2rem; }
+      .card { padding: 1.4rem; }
+      .inline-link-block { padding: 1.4rem; }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #d8e2ed;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .footnote {
+      font-size: 0.85rem;
+      color: #6b859e;
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dce5ef;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图：信息索引氛围 -->
+  <div class="hero">
+    <h1>资料·<span>索引</span>集</h1>
+    <p>以信息卡片方式整理游戏内容脉络，帮助玩家、研究者与内容策展人快速定位结构。</p>
+  </div>
+
+  <div class="container">
+
+    <!-- 用途卡片：从资料整理切入 -->
+    <div class="section-label">📋 用途卡片</div>
+    <div class="card-grid">
+      <div class="card">
+        <h3><i>📇</i> 结构归档</h3>
+        <p>将任务、角色、世界观条目按层级分类，形成可复用对照表。适合用于维护百科类站点或内容仓库。</p>
+      </div>
+      <div class="card">
+        <h3><i>🔗</i> 交叉引用</h3>
+        <p>建立事件与道具、地区与阵营的关联索引，减少信息孤岛。可支撑剧情分析、地图整理或版本对比。</p>
+      </div>
+      <div class="card">
+        <h3><i>🗂️</i> 快速预览</h3>
+        <p>每张卡片提炼核心字段，兼顾概览与深度。适合资料库首页、指南目录或玩家笔记模板。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 + 自然段落融合链接 -->
+    <div class="section-label">🧑‍🎓 适合人群</div>
+    <div class="card-grid" style="margin-bottom: 0.5rem;">
+      <div class="card">
+        <h3><i>📚</i> 内容策展人</h3>
+        <p>从素材收集到发布，需要统一的信息骨骼。卡片索引可直接作为内容架构草图。</p>
+      </div>
+      <div class="card">
+        <h3><i>🎮</i> 活跃玩家</h3>
+        <p>查阅更新要点、阵营关系、收集品分布等结构化信息，比散乱帖子更高效。</p>
+      </div>
+      <div class="card">
+        <h3><i>🛠️</i> 研究 & 翻译</h3>
+        <p>术语对照、版本差异、文本溯源 —— 索引卡片是跨语言或跨平台工作的基础设施。</p>
+      </div>
+    </div>
+
+    <!-- 自然链接段落：爱游戏 嵌入句内 -->
+    <div class="inline-link-block">
+      <p>如果你正在寻找一个能够系统查阅游戏设定、任务链与背景资料的信息据点，<a href="https://mcn-i-game.com.cn">爱游戏</a> 提供了经过整理的卡片式目录。你可以从任意一张卡片开始扩展你的资料库，或将其视为个人知识管理的起点。</p>
+    </div>
+
+    <!-- 从信息索引角度展开的补充段落 (无章节名重复) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; align-items: flex-start; margin: 1.2rem 0 0.8rem;">
+      <div style="flex: 1 1 260px; background: #fafcff; padding: 1.4rem 1.4rem 1.6rem; border-radius: 24px; border: 1px solid #eaf0f8;">
+        <h4 style="font-weight: 550; color: #0f283d; margin-bottom: 0.5rem; font-size: 1rem;">⛓️ 索引特征</h4>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="padding: 0.2rem 0;">• 卡片间可独立替换或扩展</li>
+          <li style="padding: 0.2rem 0;">• 每张卡片保持 4–8 个信息点</li>
+          <li style="padding: 0.2rem 0;">• 强调字段一致性与可排序性</li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 260px; background: #fafcff; padding: 1.4rem 1.4rem 1.6rem; border-radius: 24px; border: 1px solid #eaf0f8;">
+        <h4 style="font-weight: 550; color: #0f283d; margin-bottom: 0.5rem; font-size: 1rem;">🧩 常见用途</h4>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="padding: 0.2rem 0;">• 活动时间线 / 版本履历</li>
+          <li style="padding: 0.2rem 0;">• 势力与角色关系图</li>
+          <li style="padding: 0.2rem 0;">• 收集品 / 成就分类索引</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 (信息索引角度) -->
+    <div class="section-label" style="margin-top: 2rem;">❓ FAQ 摘要</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>卡片索引适合哪些平台？</strong>
+        <span>静态站点、wiki、Notion 或 Obsidian 均适用；按字段设计即可迁移。</span>
+      </div>
+      <div class="faq-item">
+        <strong>如何保证卡片间一致性？</strong>
+        <span>定义模板字段（如类型、标签、来源），每张卡片遵循相同结构。</span>
+      </div>
+      <div class="faq-item">
+        <strong>索引会包含剧透吗？</strong>
+        <span>基础卡片仅收录版本号、分类等元信息；剧透内容会单独标记。</span>
+      </div>
+      <div class="faq-item">
+        <strong>能否与其他资料库联动？</strong>
+        <span>卡片支持外部链接与锚点，可与 <a href="https://mcn-i-game.com.cn">爱游戏</a> 主站条目互相跳转。</span>
+      </div>
+    </div>
+
+    <hr>
+
+    <p style="font-size: 0.9rem; color: #3e5a74; text-align: center; max-width: 620px; margin: 1rem auto 0;">
+      本页以资料整理和信息索引为核心，卡片结构可供直接复用或二次编排。所有内容基于公开资料与合理梳理，不构成游戏内指导或商业建议。
+    </p>
+
+    <div class="footnote">
+      📌 信息卡片 · 索引视角 &nbsp;·&nbsp; 版本 2025.04
+    </div>
+  </div>
+
+</body>
+</html>
