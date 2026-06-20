@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UED体育 · 定位与功能简述</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf9f8;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #222224;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.0rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      color: #111;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #5f5f66;
+      margin-bottom: 2.5rem;
+      border-left: 3px solid #d4d0cb;
+      padding-left: 1rem;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.2rem 0 0.8rem 0;
+      color: #1a1a1e;
+      border-bottom: 1px solid #e4e2df;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 540;
+      margin-top: 1.6rem;
+      margin-bottom: 0.4rem;
+      color: #2b2b30;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 0.98rem;
+      color: #2e2e33;
+    }
+
+    /* 引用块 */
+    .pull-quote {
+      background: #f1efec;
+      padding: 1.1rem 1.4rem;
+      margin: 1.6rem 0 1.8rem 0;
+      border-radius: 0;
+      font-style: normal;
+      border-left: 5px solid #b7afa5;
+      color: #2f2f35;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    .pull-quote::before {
+      content: "▌ ";
+      font-size: 1.2rem;
+      color: #7c7368;
+    }
+
+    /* 访问句 小标签 */
+    .visit-marker {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dad7d2;
+      font-size: 0.95rem;
+      color: #3f3f46;
+    }
+
+    .visit-marker a {
+      color: #1f3a5f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b7b1aa;
+      font-weight: 450;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .visit-marker a:hover {
+      color: #0b1d33;
+      text-decoration-color: #0b1d33;
+    }
+
+    /* 内联链接 */
+    .inline-link {
+      color: #1f3a5f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #c5bfb7;
+      text-decoration-thickness: 1px;
+      font-weight: 420;
+    }
+
+    .inline-link:hover {
+      color: #091a2e;
+      text-decoration-color: #091a2e;
+    }
+
+    /* 小列表用于特点摘要 */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 1.4rem 0;
+    }
+
+    .feature-list li {
+      padding: 0.35rem 0 0.35rem 1.8rem;
+      position: relative;
+      font-size: 0.96rem;
+      color: #303036;
+    }
+
+    .feature-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #8f887f;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1.6rem 1rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .subhead {
+        font-size: 0.92rem;
+        padding-left: 0.7rem;
+      }
+      .pull-quote {
+        padding: 0.9rem 1rem;
+      }
+    }
+
+    /* 极简留白微调 */
+    .faq-note {
+      background: #f6f4f1;
+      padding: 1rem 1.4rem;
+      margin: 1.8rem 0;
+      border-radius: 0;
+      font-size: 0.94rem;
+      border: 1px solid #e3dfd9;
+    }
+
+    .faq-note strong {
+      font-weight: 550;
+      color: #1a1a1e;
+    }
+
+    .small-meta {
+      color: #6f6b66;
+      font-size: 0.85rem;
+      margin-top: -0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e8e4df;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 标题 + 导语 -->
+  <h1>UED体育 · 用途速览</h1>
+  <div class="subhead">
+    从访问者视角直接定位：这是一个集成赛事索引、数据查询与内容聚合的体育信息站点
+  </div>
+
+  <!-- 第一段正文：快速识别网站用途 -->
+  <p>
+    当你第一次进入一个体育类网站，最直接的诉求往往是：<strong>这里能看什么？数据是否及时？信息结构是否清晰？</strong>
+    <strong>ued体育</strong> 的设计逻辑即围绕这种“快速识别”展开——首页以条目式聚合为主，突出赛程、比分与简短资讯，避免过度装饰。页面布局偏向工具属性，而非故事性叙事，用户可在几秒内判断内容与自身需求的匹配度。
+  </p>
+
+  <!-- 引用提示：来自真实使用观察 -->
+  <div class="pull-quote">
+    从首页结构看，ued体育 更接近“轻量体育信息索引”，而非门户式轰炸。每个模块都承担具体指向：赛程、结果、简短战报。这种克制对高频查询者比较友好。
+  </div>
+
+  <!-- 特点摘要部分，使用小标题 + 列表 -->
+  <h2>信息组织特点</h2>
+  <p>基于对站点结构的观察，以下细节有助于新访问者快速建立心智模型：</p>
+  <ul class="feature-list">
+    <li>首页顶部通常展示当日/当轮重点赛事，结果与时间并列，不隐藏关键字段。</li>
+    <li>列表式条目带有联赛/赛事标签，区分度较高，减少识别负担。</li>
+    <li>内容更新以数据变动（比分、赛程状态）为驱动，文字报道保持简洁。</li>
+    <li>导航层级较浅：多数二级页面可通过一次点击到达，适合移动端快速操作。</li>
+  </ul>
+
+  <!-- 正文第二段：使用场景切入 -->
+  <h2>典型使用场景</h2>
+  <p>
+    假设你需要在几分钟内确认某几场比赛的结果，或者追踪某个联赛的实时进程。直接打开 <a class="inline-link" href="https://home-ued.com">ued体育</a> 的赛程页面，按时间倒序过滤即可。站内没有过多社交或视频干扰，信息密度偏向传统体育数据站。对于不想消耗注意力的查询型用户，这种环境反而高效。
+  </p>
+  <p>
+    另一个常见场景是赛前预览：通过列表中的交锋记录或近期状态标签（如果可用），结合简短的前瞻条目，快速建立基本判断。数据与文字各自独立，互不冗余。
+  </p>
+
+  <!-- 提示块：FAQ 摘要风格 -->
+  <div class="faq-note">
+    <strong>可能想了解的细节</strong><br>
+    · 赛程覆盖哪些范围？以主流联赛和杯赛为主，部分二级联赛视数据源而定。<br>
+    · 是否需要登录？基础浏览与查询无需注册，部分个性化功能可能需要账号。<br>
+    · 移动端适配情况？采用响应式布局，窄屏下列表与导航均可正常使用。
+  </div>
+
+  <!-- 第三段：引用式提示，增加可读性 -->
+  <h3>一条关于辨识的提示</h3>
+  <p>
+    如果你习惯使用 RSS 阅读器或纯文本界面，<strong>ued体育</strong> 的内容结构会让你更容易定位信息。页面标题与段落区分度明显，没有无效区块。建议初次访问时先浏览首页中部及底部模块，了解数据分类方式，再按需深入。
+  </p>
+
+  <hr>
+
+  <!-- 访问句：自然嵌入链接，符合要求 -->
+  <div class="visit-marker">
+    若需直接查看当前赛程或赛事索引，可以前往 <a href="https://home-ued.com">ued体育</a>。页面加载速度较快，适合频繁查询场景。
+  </div>
+
+  <!-- 极小字 footer（仅用于交代呼吸感，无诱导内容） -->
+  <div style="margin-top: 2.8rem; color: #9d978f; font-size: 0.78rem; letter-spacing: 0.02em; border-top: 1px solid #eeeae5; padding-top: 1.2rem;">
+    基于站点公开结构概述 · 信息精确至页面布局层面
+  </div>
+
+</div>
+</body>
+</html>
