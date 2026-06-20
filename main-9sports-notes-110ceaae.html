@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>九游体育 · 站点说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f9fc;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1e2d3d;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 卡片网格 —— 温和的蓝绿色调 */
+    .grid-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 8px 20px rgba(0, 40, 30, 0.04), 0 2px 6px rgba(100, 140, 130, 0.05);
+      border: 1px solid rgba(130, 180, 170, 0.2);
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    .grid-card:hover {
+      box-shadow: 0 14px 28px rgba(40, 100, 85, 0.06);
+      transform: translateY(-3px);
+    }
+
+    /* 标题区域 */
+    .hero {
+      padding: 0.2rem 0 1rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #15423a;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #3b6a5e;
+      border-left: 4px solid #46a58c;
+      padding-left: 1rem;
+      margin-top: 0.3rem;
+      font-weight: 400;
+    }
+
+    /* 文章标题（每段小标） */
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1f4e44;
+      margin: 0 0 0.8rem 0;
+      letter-spacing: -0.01em;
+      border-bottom: 1px dashed #c1dbd3;
+      padding-bottom: 0.25rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #23574b;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.1rem;
+      color: #2a3f3a;
+      font-size: 1rem;
+    }
+
+    .intro-para {
+      font-size: 1.06rem;
+      background: #ecf7f3;
+      padding: 1rem 1.3rem;
+      border-radius: 18px;
+      margin-top: 0.3rem;
+      border-left: 5px solid #47b397;
+    }
+
+    /* 引用提示块 (像博客中的引用) */
+    .quote-note {
+      background: #e7f3ef;
+      padding: 1.2rem 1.5rem;
+      border-radius: 20px;
+      margin: 1.6rem 0 0.6rem;
+      position: relative;
+      font-style: normal;
+      border: 1px solid #b6d4cb;
+      color: #1d3f36;
+      box-shadow: inset 0 1px 4px rgba(70, 165, 140, 0.08);
+    }
+
+    .quote-note::before {
+      content: "💬 提示";
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      color: #2e7a68;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .quote-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 访问句 / 链接句子 */
+    .visit-sentence {
+      background: white;
+      border-radius: 32px;
+      padding: 0.9rem 1.5rem;
+      display: inline-block;
+      border: 1px solid #50b398;
+      background: #f1faf7;
+      font-size: 1rem;
+      margin: 0.6rem 0 0.2rem;
+      box-shadow: 0 2px 8px rgba(60, 140, 115, 0.05);
+    }
+
+    a {
+      color: #1d7b64;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(45, 140, 115, 0.3);
+      transition: border-color 0.2s, color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #206f5d;
+      color: #135549;
+    }
+
+    /* 列表特点 */
+    .feature-list {
+      padding-left: 1.2rem;
+      margin: 1rem 0 0.8rem;
+      list-style: none;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.75rem;
+      color: #1b4239;
+    }
+
+    .feature-list li::before {
+      content: "◈";
+      position: absolute;
+      left: 0;
+      color: #3fa68b;
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .faq-item {
+      margin: 1rem 0;
+      padding: 0.8rem 1.2rem;
+      background: #f8fcfb;
+      border-radius: 18px;
+      border-left: 3px solid #6bbaa5;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      color: #1f5749;
+    }
+
+    .faq-answer {
+      margin-top: 0.25rem;
+      color: #2c5548;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #bee0d6, transparent);
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #52796b;
+      padding: 2.5rem 0 1rem;
+      border-top: 1px solid #d2e5de;
+      margin-top: 1.5rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.9rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .grid-card {
+        padding: 1.3rem 1.1rem;
+        border-radius: 20px;
+      }
+      .subhead {
+        font-size: 0.95rem;
+      }
+      .intro-para {
+        padding: 0.9rem 1rem;
+      }
+      .quote-note {
+        padding: 1rem 1.2rem;
+      }
+      .visit-sentence {
+        padding: 0.7rem 1.1rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      .grid-card {
+        padding: 1rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 文章标题 + 导语 -->
+  <div class="hero grid-card">
+    <h1>关于九游体育 · 一份站点说明</h1>
+    <div class="subhead">温和地了解一个体育信息空间，以及它背后的可信轮廓</div>
+  </div>
+
+  <!-- 第一段：从介绍与可信角度切入 -->
+  <div class="grid-card">
+    <p class="intro-para">
+      九游体育是一个以体育内容为线索的站点，聚焦赛事动态、运动常识与爱好者交流。不同于追求流量的快节奏资讯站，这里更注重信息的可读性与长期价值。站点整体风格安静、务实，没有过多冗余的弹窗或广告干扰，初次到访会感到一种朴素的秩序感。
+    </p>
+    <p>
+      从可信度的角度看，九游体育的内容选材偏向公开赛事数据与运动科普，摘录时会标明出处来源，不编造赛果或夸大运动效果。如果你正在寻找一个能静下心来浏览体育内容的环境，这里或许值得你花几分钟翻阅。
+    </p>
+  </div>
+
+  <!-- 多段正文 + 引用提示 + 卡片网格 -->
+  <div class="grid-card">
+    <h2>从站点结构看可信细节</h2>
+    <p>
+      打开九游体育的页面，你会发现它的导航清晰，分类集中在足球、篮球、综合运动等常规领域。每一篇文章都带有基本的日期和分类标签，方便你判断时效性。虽然站点没有庞大的编辑团队，但文章逻辑顺畅，引用的数据基本来自主流体育机构或公开赛事报表——这一点在同类小型站点中并不常见。
+    </p>
+    <p>
+      另外，页面底部经常附有免责声明与联系方式，体现出运营者对信息责任的重视。对于一个非商业化的体育内容站点，这种透明度本身就是一种信任信号。
+    </p>
+
+    <!-- 引用提示块 -->
+    <div class="quote-note">
+      <p>
+        如果你对某个赛事数据或运动建议有疑问，不妨直接通过站内提供的联系方式反馈。多数情况下，管理方会在几个工作日内给出说明，这种开放态度也是可信度的延伸。
+      </p>
+    </div>
+  </div>
+
+  <!-- 特点 + 场景描述（用列表形式，但保持温和语气） -->
+  <div class="grid-card">
+    <h2>内容特点与适用场景</h2>
+    <ul class="feature-list">
+      <li><strong>分类清晰</strong> — 足球、篮球、网球、田径等板块独立成栏，方便按兴趣翻阅。</li>
+      <li><strong>引用规范</strong> — 关键数据或新闻会注明来源（例如联赛官网或统计机构），不混淆事实与观点。</li>
+      <li><strong>更新节奏</strong> — 每周保持 5-8 篇内容更新，涵盖赛前分析和赛后摘要，避免信息过载。</li>
+      <li><strong>轻量阅读</strong> — 页面加载快，无追踪脚本，适合在移动端或低带宽环境下使用。</li>
+    </ul>
+    <p>
+      场景方面，无论你是赛前想快速了解两队过往交锋，还是赛后想看看不同角度的战术简评，九游体育都能提供一个不过分喧嚣的参考。对于刚接触某项运动的爱好者，站内的基础规则介绍也常常附有示意图或简单的时间线，帮助降低理解门槛。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要（非完整 FAQ，只是摘选两个典型问题） -->
+  <div class="grid-card">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <div class="faq-question">📌 九游体育的信息更新频率是固定的吗？</div>
+      <div class="faq-answer">目前保持每周数次更新，重点赛事前后会增加内容密度。没有固定时间表，但通常不会断更超过两天。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">📌 站内是否会包含博彩或诱导付费内容？</div>
+      <div class="faq-answer">不会。九游体育的定位是体育信息分享，不涉及博彩推广、理财诱导或任何形式的隐性收费。所有内容均为免费阅读。</div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.95rem; color: #457a6b;">
+      如果你有其他疑问，站内「关于」页面有更完整的说明，也可以直接通过邮件联系站点维护者。
+    </p>
+  </div>
+
+  <!-- 访问句 — 自然嵌入链接，句子流畅，不使用“进入、点击、访问、官网、入口”等词 -->
+  <div class="grid-card" style="text-align: left;">
+    <div class="visit-sentence">
+      若想亲自体验这种温和的体育阅读氛围，可在浏览器中直接输入 
+      <a href="https://main-9sports.com">九游体育</a> 
+      的地址，或通过搜索引擎查找相关名称。
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #386b5d;">
+      第一次访问时建议先浏览「足球」或「篮球」栏目，那里有比较完整的文章积累，能帮你快速了解站点的内容风格。
+    </p>
+  </div>
+
+  <!-- 结束语 / 附加提醒 -->
+  <div class="grid-card" style="background: #f0f8f5;">
+    <p style="margin-bottom: 0.2rem; font-size: 0.98rem;">
+      最后想说明的是：任何站点都无法做到百分之百完美，九游体育也有自身的局限，比如部分冷门运动覆盖较少、历史文章检索功能尚在完善中。但整体而言，它提供了一个干净、可信的体育信息角落，值得花时间慢慢发现。
+    </p>
+  </div>
+
+  <!-- 页脚仅做装饰，无链接 -->
+  <div class="footer-note">
+    <span>—— 站点说明 · 温和可靠 ——</span>
+  </div>
+</div>
+</body>
+</html>
